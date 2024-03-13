@@ -1,4 +1,5 @@
 import express from 'express';
+import diaryRouter from './routes/diaries';
 
 const app = express();
 app.use(express.json());
@@ -10,6 +11,8 @@ app.get('/funciona', (_req,res) => {
     res.send('Funciona bien');
 })
 
+app.use('/datos', diaryRouter);
+
 app.listen(PORT, () => {
     console.log(`Escucha en el puerto ${PORT}`);
-})
+}) 
